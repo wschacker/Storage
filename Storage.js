@@ -63,7 +63,8 @@
     var _localStorage = function(){
         //Clear the outdated data
         var d = new Date().getTime();
-        for(key in localStorage){
+        //fix when html node element name : key ,foreache error
+        for(var key in localStorage){ 
             var v = localStorage.getItem(key);
             //If you add storage throw localStorage.setItem("abc","abcvalue") not Storage.set("abc","abcvalue"),it will catch an error when parse the value "abcvalue" 
             try{v = JSON.parse(v)}catch(e){};
